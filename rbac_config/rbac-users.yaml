@@ -1,0 +1,26 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: <file CA.crt>
+    server: https://<IP:8443>
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user: 
+    client-certificates: <file.crt>
+    client-key: <file.key>
+
+- name: <google oath>
+  user:
+    oidc_user: <email@email.fr>
+    oidc_provider: google
+    oidc_token: <token>
+
