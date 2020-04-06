@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: Variable d'environnement projet
+data:
+NODE_ENV: production
+PORT_WP: 32270
+TEST: toto
