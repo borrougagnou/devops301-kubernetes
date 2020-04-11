@@ -1,0 +1,23 @@
+
+# Add the following to your ~/.kube/config
+apiVersion: v1
+clusters: []
+contexts: []
+current-context: ""
+kind: Config
+preferences: {}
+users:
+- name: borisrou@gmx.fr
+  user:
+    auth-provider:
+      config:
+        client-id: 72295251880-54h9noj2euk36mqququ2gjg21j1rhft6.apps.googleusercontent.com
+        client-secret: U4dWBAfMh_UbaZwb-UtxyKHu
+        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNzIyOTUyNTE4ODAtNTRoOW5vajJldWszNm1xcXVxdTJnamcyMWoxcmhmdDYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3MjI5NTI1MTg4MC01NGg5bm9qMmV1azM2bXFxdXF1MmdqZzIxajFyaGZ0Ni5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMDU1MjE1MjEzNzIxNTA5MzIyNCIsImVtYWlsIjoiYm9yaXNyb3VAZ214LmZyIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJ3VVEwVTVoWVZ0LUZHRm9GdzItZWlRIiwiaWF0IjoxNTg2NjI3MzM1LCJleHAiOjE1ODY2MzA5MzV9.qbkEjRrinIUbqN6toT7Ea5tABSv8wX-avF5fjbFRlZ5rYs4WUATrq7eFHq4BRuLEh-eMBzKC5TTm8YwJ4zBi7YEVKOJwwSC7ELFMx-ZqlfyIJf-UCp5tX5Z-Vd0N2HzqqAX6KUv7nuxa0JGgANy1SCPEYS61FuzHnI8oSLNHdsCIefd_xtvqrkzY-E38idj2cBuIyaOP-VaZTT8Lkz6iMa0Eh-eum_nbx4gBkGKTnF07Luxg4_vMAKYL0t5sOgNOXogK5oIyGX35tHuzsNu-MLmGGS1LBoItWm2Kw16CYkY4U_NqrsY7qbGFAVks218cDI9aFwszDqY65-8kT0gDdA
+        idp-issuer-url: https://accounts.google.com
+        refresh-token: 1//03R9I_R1SSPT9CgYIARAAGAMSNwF-L9Irx-4wYmYLcvLKIQVvW65vWVR2ML-U1uMVuSsz4IZ95b19pfSgi8YnUEsY2zaeSuN8Et0
+      name: oidc
+
+
+
+
