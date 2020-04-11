@@ -1,0 +1,25 @@
+apiVersion: kubedb.com/v1alpha1
+kind: MySQL
+metadata:
+  name: mysql-wp-v2
+  namespace: backend
+spec:
+  version: "5.7.25"
+  replicas: 3
+  topology:
+    mode: GroupReplication
+    group:
+     name: "8e0c100a-ef41-4256-809f-73ebe86534bc"
+     baseServerID: 100
+  databaseSecret:
+   secretName: m1-auth
+  storageType: Durable
+  storage:
+    storageClassName: "standard"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  terminationPolicy: WipeOut
+

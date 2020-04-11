@@ -1,0 +1,8 @@
+secretGenerator:
+- name: root
+  literals:
+  - password=max
+resources:
+- namespace.yml
+- mysql_kubedb.yaml
+- wordpress-deployment.yaml

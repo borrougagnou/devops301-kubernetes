@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-storage-snap
+  namespace: backend
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+apiVersion: kubedb.com/v1alpha1
+kind: MySQL
+metadata:
+ name: wp-sql
+ namespace: backend
+ labels:
+  app: wordpress
+context:
+ name: wp-sql
+ namespace: wordpress
+spec:
+  version: "8.0-v2"
+  topology:
+   mode: GroupReplication
+  databaseSecret:
+    secretName: m1-auth
+  storageType: "Durable"
+  storage:
+   storageClassName: "standard"
+   accessModes:
+   - ReadWriteOnce
+   volumeMode: Filesystem
+   resources:
+    requests:
+     storage: 5Gi
+  backupSchedule:
+   cronExpression: "@every 2m"
+   storageSecretName: ms-snap-secret
+  podTemplate:
+    annotations:
+      passMe: ToDatabasePod
+    controller:
+      annotations:
+        passMe: ToStatefulSet    
+    spec:
+      image: mysql:5.6
+      name: mysql
+      env: 
+      - name: MYSQL_DATABASE
+        value: myDB
+  serviceTemplate:
+    annotations:
+      passMe: ToService
+    spec:
+      type: NodePort
+      ports:
+      - containerPort: 3306
+        name: mysql
+---
+apiVersion: kubedb.com/v1alpha1
+kind: Snapshot
+metadata:
+  name: local-snapshot
+  labels:
+    kubedb.com/kind: wp-sql
+spec:
+  databaseName: test
+  local:
+    mountPath: /tmp
+    persistentVolumeClaim:
+      claimName: my-snap-pvc
+---
+
+apiVersion: kubedb.com/v1alpha1
+kind: MySQL
+metadata:
+  name: mysql-wp
+  namespace: backend
+spec:
+  version: "8.0-v2"
+  replicas: 3
+  topology:
+    mode: GroupReplication
+    name: "dc002fc3-c412-4d18-b1d4-66c1fbfbbc9b"
+    baseServerID: 100
+  databaseSecret:
+   secretName: m1-auth
+  storageType: Durable
+  storage:
+    storageClassName: "standard"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 5Gi
+  terminationPolicy: WipeOut
