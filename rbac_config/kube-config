@@ -1,58 +1,61 @@
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority: /home/rougag_b/.minikube/ca.crt
-    server: https://192.168.99.100:8443
-  name: minikube
 contexts:
 - context:
-    cluster: minikube
-    user: minikube
-  name: minikube
+    cluster: gke_devops-kubernetes-project_europe-west1-b_kube-cluster
+    user: oath-admin
+  name: usr-admin
 - context:
-    cluster: minikube
-    user: client
+    cluster: gke_devops-kubernetes-project_europe-west1-b_kube-cluster
+    user: oath-client
   name: usr-client
 - context:
-    cluster: minikube
-    user: dev
+    cluster: gke_devops-kubernetes-project_europe-west1-b_kube-cluster
+    user: oath-dev
   name: usr-dev
 - context:
-    cluster: minikube
-    user: borisrou@gmx.fr
-  name: usr-google
-- context:
-    cluster: minikube
-    user: sysops
+    cluster: gke_devops-kubernetes-project_europe-west1-b_kube-cluster
+    user: oath-sysops
   name: usr-sysops
-current-context: minikube
-kind: Config
-preferences: {}
+
+
 users:
-- name: borisrou@gmx.fr
+- name: oath-admin
   user:
     auth-provider:
       config:
-        client-id: 72295251880-54h9noj2euk36mqququ2gjg21j1rhft6.apps.googleusercontent.com
-        client-secret: U4dWBAfMh_UbaZwb-UtxyKHu
-        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3MjI5NTI1MTg4MC01NGg5bm9qMmV1azM2bXFxdXF1MmdqZzIxajFyaGZ0Ni5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjcyMjk1MjUxODgwLTU0aDlub2oyZXVrMzZtcXF1cXUyZ2pnMjFqMXJoZnQ2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTUyMTUyMTM3MjE1MDkzMjI0IiwiZW1haWwiOiJib3Jpc3JvdUBnbXguZnIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Ik5yOXY4dWNhaHAtZE8za0syRkZpcnciLCJuYW1lIjoiQm8gUm8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDYuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy0tQi1HS1RhN2ZrMC9BQUFBQUFBQUFBSS9BQUFBQUFBQUFBQS9BQUtXSkpOVDZ1SmRVeTRONHBNQjRMeWVINjItempfSlBRL3M5Ni1jL3Bob3RvLmpwZyIsImdpdmVuX25hbWUiOiJCbyIsImZhbWlseV9uYW1lIjoiUm8iLCJsb2NhbGUiOiJmciIsImlhdCI6MTU4NjYzNTQxNywiZXhwIjoxNTg2NjM5MDE3fQ.ySzWp6kYaj6MhIQ1kPVIONqc-DxHbGn6wl3mrk1KJNA83xTudYnIfKfFRsRuzvNPcA_KX0_aRmpzKgNnYSZAXIetU1MnYE3655RhlpDwuOsZQv_jv55_nmfFhrR8wIiWfAR0y5uTFBKZEgtF1nVvKCoNyVNAruW0ISL9hXRjyLaRKMF0F5dNicPi9tt6jIHVduwzihzeD5oUahzo-dEt1FMowWwIAkiAWcFW1NvAzOxHOraQjiYYAaUuVK4XR_r-gZhnrdqJzVSFSmE1leSckWkXTUHVV6Rrnl7Y9wfjJhELY0CFj7qCqvZ7arywZct2_y8WjAEEmi02XRtptP4t3g
+        client-id: 882299444789-b48qn4d20025enut1tsdbgj60lduv0ok.apps.googleusercontent.com
+        client-secret: b89nLz1FF1e0pfV1UJKz5PDV
+        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODgyMjk5NDQ0Nzg5LWI0OHFuNGQyMDAyNWVudXQxdHNkYmdqNjBsZHV2MG9rLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODgyMjk5NDQ0Nzg5LWI0OHFuNGQyMDAyNWVudXQxdHNkYmdqNjBsZHV2MG9rLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTUyMTUyMTM3MjE1MDkzMjI0IiwiZW1haWwiOiJib3Jpc3JvdUBnbXguZnIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkFBVzVQejZ4Smc3cjloTHEzV1l5eUEiLCJpYXQiOjE1ODY3MjQ5MTgsImV4cCI6MTU4NjcyODUxOH0.z2CBYmULjXttQWfihOHtxJvozBL-QkICb17bRgm3-9DYxMoEd6y8V1x2nuN3ExbLAHuzYJqSqXAoTX23f9JbWlursudmqJmIaYnmfrTDRPOqk19eYbMzQdVfuV8lLh0hDA_3C_gOM3sDOY9aWp1dgizp9DFAR0NvUcD5RgDQKyi7nPe7Nl5adnlZBZv00h_Em6SiWJ-l25XJmqw-rsfIv-rf41CyMubm4jwRy0MJH9PV6vnuxoZy02iSEzrjLqdxguKrMLJQ7X1-bmxD3Xd7Ttpn3lseX4PR6337voLd8j6ezp0UOp693R8uLweeRAcIv4EYpFFAs_ME5FN3Y36Bsg
         idp-issuer-url: https://accounts.google.com
-        refresh-token: 1//03R9I_R1SSPT9CgYIARAAGAMSNwF-L9Irx-4wYmYLcvLKIQVvW65vWVR2ML-U1uMVuSsz4IZ95b19pfSgi8YnUEsY2zaeSuN8Et0
+        refresh-token: 1//03RT5JMjoB-iiCgYIARAAGAMSNwF-L9Irs8i98r4IZG2kQzwaR-U7tRSw3ooDmWofANlj06qWXG9NIhVz6dGs0ncKSQsMAQQffQk
       name: oidc
-- name: client
+- name: oath-client
   user:
-    client-certificate: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/client-signed.crt
-    client-key: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/client.key
-- name: dev
+    auth-provider:
+      config:
+        client-id: 882299444789-56ulcicden2ae2uag15mvo7cbp45elc8.apps.googleusercontent.com
+        client-secret: zNFOH8OpmDvzLu5F5_GxV0jX
+        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODgyMjk5NDQ0Nzg5LTU2dWxjaWNkZW4yYWUydWFnMTVtdm83Y2JwNDVlbGM4LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODgyMjk5NDQ0Nzg5LTU2dWxjaWNkZW4yYWUydWFnMTVtdm83Y2JwNDVlbGM4LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTUyMTUyMTM3MjE1MDkzMjI0IiwiZW1haWwiOiJib3Jpc3JvdUBnbXguZnIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IlJwT2diMWU2dGxlX3NnbmlsTnZ2VHciLCJpYXQiOjE1ODY3MjQ5MDgsImV4cCI6MTU4NjcyODUwOH0.zwweQd1PgObatMtBcAcGvwsQAI4djLrCi4n7P61eV2X14qU5AnuSOQc4uKFFdBUo5On7BniaIsuuBaRNIPMws6TAn7JdRlqHJef7CeXStjAZBQTqxpIcCFUmdUAJ-XsoASbLfrXYmjykcthxiftUmaLUalvf6lX-gNTZ9DyatEf1k95kAQjKiuwTFnlVEcAsBY6VBL3kssvUuGKgAZR1-IgUUCit8k4w3TgMLLoKGOTdq4_YD3gd-gALuYs6DrCWb6TvGSQFPzwnGWRWw3mr1mp23BaLsFITXQ2Hb0L6VPWmEC9rzY9ftb9opMaGn3fuappEXqXWlBzNiFidFLxmBA
+        idp-issuer-url: https://accounts.google.com
+        refresh-token: 1//03tmrPjSeZPTgCgYIARAAGAMSNwF-L9IrO7bvvRc49szYpHtZiK3a3v4ekrQlF_JkA_yYSSm0W_2fJqtPwfPfpWnlEYakPe6BFkU
+      name: oidc
+- name: oath-dev
   user:
-    client-certificate: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/dev-signed.crt
-    client-key: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/dev.key
-- name: minikube
+    auth-provider:
+      config:
+        client-id: 882299444789-ih1tpt154hb7801tp8d9eihnbaqrfqsb.apps.googleusercontent.com
+        client-secret: NEhcWjz53FSvMKZ2sgJI1H7Y
+        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODgyMjk5NDQ0Nzg5LWloMXRwdDE1NGhiNzgwMXRwOGQ5ZWlobmJhcXJmcXNiLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODgyMjk5NDQ0Nzg5LWloMXRwdDE1NGhiNzgwMXRwOGQ5ZWlobmJhcXJmcXNiLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTUyMTUyMTM3MjE1MDkzMjI0IiwiZW1haWwiOiJib3Jpc3JvdUBnbXguZnIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6ImFfb0hmSERMcDhydmkxSWtaT0FRM3ciLCJpYXQiOjE1ODY3MjQ4OTksImV4cCI6MTU4NjcyODQ5OX0.CtVm8-wfBYiulinwTk8DRMQN9HDXuaZcEnSswvCsRyUvHPs7nyI4YQFCsWfsQRPBSSVu2gpeYKEZ8Q3_Nk12zDkY2ykZvPvkix7Yj2b8NjGfECVZBYRjdTmFAay1KvY_y3cgpl6Gkm-r7XQ8wpkehRS0pV_qkkwWH6apzMdW_RQYQe1V6kmxOYBpD0HQ2LJybhi3qiIFs5_yzNmhKbHE1hp-VsBo6qcM2MAGdZoypquHRAjrUEofDDZNfYO2O7l0oNsdm5Nvl3coQLoe0j-_jV_Dlx-dGQ3M3CKj8K01y_OVXM5jip23OemUTNN9R018uPxg8kbV9noqby9IhOTxvw
+        idp-issuer-url: https://accounts.google.com
+        refresh-token: 1//036tocTTp7My9CgYIARAAGAMSNwF-L9Iruup626ZLm9dXoAfvOR-F4Q669bArO1_r7nTc5_GWwQmqAYGqY9L_bujvTDl1BRm6USk
+      name: oidc
+- name: oath-sysops
   user:
-    client-certificate: /home/rougag_b/.minikube/client.crt
-    client-key: /home/rougag_b/.minikube/client.key
-- name: sysops
-  user:
-    client-certificate: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/sysops-signed.crt
-    client-key: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/sysops.key
+    auth-provider:
+      config:
+        client-id: 882299444789-4gdh9jpd3vqh4jt489e6pvj4d4qn3pu3.apps.googleusercontent.com
+        client-secret: 3McA_-gfc1vfrq0e8Mom_To8
+        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODgyMjk5NDQ0Nzg5LTRnZGg5anBkM3ZxaDRqdDQ4OWU2cHZqNGQ0cW4zcHUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODgyMjk5NDQ0Nzg5LTRnZGg5anBkM3ZxaDRqdDQ4OWU2cHZqNGQ0cW4zcHUzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTUyMTUyMTM3MjE1MDkzMjI0IiwiZW1haWwiOiJib3Jpc3JvdUBnbXguZnIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IlJqd1NvdXdxNnB3UVppc3V6a1J0WUEiLCJpYXQiOjE1ODY3MjQ5MjcsImV4cCI6MTU4NjcyODUyN30.JPp4TLGzddth4CwIfzRtb1VDPVLiosjA84QmkwwA2ZqU8QNpkNj_OfusojIVlAr_1fiF7VgyanPRCYeCHvY0KFdQ1subcRD3aw1tWalX801XQd2Kt_OA773zZDRe0Z-MPUS8XkNrxr9M8lpDF6SQdhoIeljCDThHgj_ev1Ep-yUn1oqmhg80Fsr3R_NOJD2koQubA3PoJhjsVSfNlCK0wd9ZvHyi3PrIrh_vorH6iKK205uUcf1nq1pN3B1lfeQUdpFmwvIJM2RP_HvAYZLgLejAgfBPkd6eQNtMjf5Qu5QaV1tBIp5ulrTLedCExcLApvddnaCWbCX-jQU3_BmkGQ
+        idp-issuer-url: https://accounts.google.com
+        refresh-token: 1//03-KHnJDjY8HiCgYIARAAGAMSNwF-L9Ir0QD0YpqO_647myG_kPogR2TE5FZYN41jyONFeFB2w0OTabY57WiAjIv3e-KA3TwQeGE
+      name: oidc
 

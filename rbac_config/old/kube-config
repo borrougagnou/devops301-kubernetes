@@ -1,0 +1,58 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /home/rougag_b/.minikube/ca.crt
+    server: https://192.168.99.100:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+- context:
+    cluster: minikube
+    user: client
+  name: usr-client
+- context:
+    cluster: minikube
+    user: dev
+  name: usr-dev
+- context:
+    cluster: minikube
+    user: borisrou@gmx.fr
+  name: usr-google
+- context:
+    cluster: minikube
+    user: sysops
+  name: usr-sysops
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: borisrou@gmx.fr
+  user:
+    auth-provider:
+      config:
+        client-id: 72295251880-54h9noj2euk36mqququ2gjg21j1rhft6.apps.googleusercontent.com
+        client-secret: U4dWBAfMh_UbaZwb-UtxyKHu
+        id-token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjZmY2Y0MTMyMjQ3NjUxNTZiNDg3NjhhNDJmYWMwNjQ5NmEzMGZmNWEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3MjI5NTI1MTg4MC01NGg5bm9qMmV1azM2bXFxdXF1MmdqZzIxajFyaGZ0Ni5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjcyMjk1MjUxODgwLTU0aDlub2oyZXVrMzZtcXF1cXUyZ2pnMjFqMXJoZnQ2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTUyMTUyMTM3MjE1MDkzMjI0IiwiZW1haWwiOiJib3Jpc3JvdUBnbXguZnIiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Ik5yOXY4dWNhaHAtZE8za0syRkZpcnciLCJuYW1lIjoiQm8gUm8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDYuZ29vZ2xldXNlcmNvbnRlbnQuY29tLy0tQi1HS1RhN2ZrMC9BQUFBQUFBQUFBSS9BQUFBQUFBQUFBQS9BQUtXSkpOVDZ1SmRVeTRONHBNQjRMeWVINjItempfSlBRL3M5Ni1jL3Bob3RvLmpwZyIsImdpdmVuX25hbWUiOiJCbyIsImZhbWlseV9uYW1lIjoiUm8iLCJsb2NhbGUiOiJmciIsImlhdCI6MTU4NjYzNTQxNywiZXhwIjoxNTg2NjM5MDE3fQ.ySzWp6kYaj6MhIQ1kPVIONqc-DxHbGn6wl3mrk1KJNA83xTudYnIfKfFRsRuzvNPcA_KX0_aRmpzKgNnYSZAXIetU1MnYE3655RhlpDwuOsZQv_jv55_nmfFhrR8wIiWfAR0y5uTFBKZEgtF1nVvKCoNyVNAruW0ISL9hXRjyLaRKMF0F5dNicPi9tt6jIHVduwzihzeD5oUahzo-dEt1FMowWwIAkiAWcFW1NvAzOxHOraQjiYYAaUuVK4XR_r-gZhnrdqJzVSFSmE1leSckWkXTUHVV6Rrnl7Y9wfjJhELY0CFj7qCqvZ7arywZct2_y8WjAEEmi02XRtptP4t3g
+        idp-issuer-url: https://accounts.google.com
+        refresh-token: 1//03R9I_R1SSPT9CgYIARAAGAMSNwF-L9Irx-4wYmYLcvLKIQVvW65vWVR2ML-U1uMVuSsz4IZ95b19pfSgi8YnUEsY2zaeSuN8Et0
+      name: oidc
+- name: client
+  user:
+    client-certificate: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/client-signed.crt
+    client-key: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/client.key
+- name: dev
+  user:
+    client-certificate: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/dev-signed.crt
+    client-key: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/dev.key
+- name: minikube
+  user:
+    client-certificate: /home/rougag_b/.minikube/client.crt
+    client-key: /home/rougag_b/.minikube/client.key
+- name: sysops
+  user:
+    client-certificate: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/sysops-signed.crt
+    client-key: /home/rougag_b/rendu/Ynov/devops/devops301-kubernetes/rbac_config/.cert/.cert/sysops.key
+

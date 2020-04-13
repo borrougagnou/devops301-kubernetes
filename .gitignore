@@ -4,3 +4,7 @@ DELL1.pem
 inventory.ini
 ansible.cfg
 
+
+### VIM
+
+*.swp

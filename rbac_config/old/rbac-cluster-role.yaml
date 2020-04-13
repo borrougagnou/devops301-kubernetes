@@ -1,0 +1,20 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: cluster-oath-adm
+rules:
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["*"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: cluster-oath-adm
+subjects:
+- kind: User
+  name: borisrou@gmx.fr
+roleRef:
+  kind: ClusterRole
+  name: cluster-oath-adm
+  apiGroup: rbac.authorization.k8s.io

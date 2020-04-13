@@ -1,0 +1,13 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: oath-admin
+  namespace: kubernetes-dashboard
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: oath-client
+  namespace: frontend
+
+
