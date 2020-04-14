@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-redir
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  generation: 1
+  namespace: default
+  resourceVersion: "446512"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/ingress-redir
+  uid: f3005543-66a1-43ce-bc81-2e2c69f2eb33
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: metrics-prometheus-node-exporter
+          servicePort: 9100
+      - path: /
+        backend:
+          serviceName: metrics-prometheus-operato-operator
+          servicePort: 8080
+      - path: /graphana
+        backend:
+          serviceName: metrics-graphana
+          servicePort: 80
+      - backend:
+          serviceName: wordpress-kube
+          servicePort: 80
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.240.47.169
