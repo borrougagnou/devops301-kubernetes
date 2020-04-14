@@ -28,7 +28,10 @@ II.  Répartition des ressources
 ------------
 
 backend : 3Gi RAM | 500M CPU
+
 frontend: 100Mi RAM | 50M CPU
+
 monitoring: 1Gi RAM | 500M CPU
+
 registry: 50Mi RAM | 50M CPU
-~                              
+                              
